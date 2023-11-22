@@ -1,10 +1,18 @@
 import streamlit as st
 from textblob import TextBlob
-import spacy  # Add import for spaCy
+import spacy
+
+# Download spaCy model (if not already downloaded)
+try:
+    nlp = spacy.load("en_core_web_md")
+except OSError:
+    print("Downloading spaCy model...")
+    from spacy.cli import download
+    download("en_core_web_md")
+    nlp = spacy.load("en_core_web_md")
 
 # Define function for Named Entity Recognition
 def named_entity_recognition(text):
-    nlp = spacy.load("en_core_web_sm")
     doc = nlp(text)
     entities = [(ent.text, ent.label_) for ent in doc.ents]
     st.success(f"Entities: {entities}")
@@ -28,8 +36,6 @@ def main():
     if st.button("Correction"):
         st.success(corrected_text)
 
-
-
     # Sentiment Analysis Section
     st.header("Sentiment Analysis")
     sentiment_text = st.text_area("Enter text for sentiment analysis")
@@ -39,7 +45,7 @@ def main():
 
     # Named Entity Recognition Section
     st.header("Named Entity Recognition")
-    text_for_ner = st.text_area("Enter Text for Entity Recognition")
+    text_for_ner = st.text_area("Enter Text for Named Entity Recognition")
     if st.button("Perform NER"):
         named_entity_recognition(text_for_ner)
 
