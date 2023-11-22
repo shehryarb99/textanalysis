@@ -1,3 +1,4 @@
 streamlit
 textblob
 spacy==3.7.2
+en_core_web_md
