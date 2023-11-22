@@ -38,8 +38,8 @@ def main():
         st.success(f"Sentiment: {sentiment_result}")
 
     # Named Entity Recognition Section
-    st.header("Named Entity Recognition:")
-    text_for_ner = st.text_area("Enter Text for Named Entity Recognition")
+    st.header("Named Entity Recognition")
+    text_for_ner = st.text_area("Enter Text for Entity Recognition")
     if st.button("Perform NER"):
         named_entity_recognition(text_for_ner)
 
