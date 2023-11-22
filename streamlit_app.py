@@ -1,6 +1,5 @@
 import streamlit as st
 from textblob import TextBlob
-from pattern.en import pluralize, singularize, comparative, superlative
 import spacy  # Add import for spaCy
 
 # Define function for Named Entity Recognition
@@ -29,21 +28,7 @@ def main():
     if st.button("Correction"):
         st.success(corrected_text)
 
-    # Pluralize/Singularize Section
-    st.header("Pluralize/Singularize")
-    text_data1 = st.text_input("Enter a word For pluralize / singularize")
-    if st.checkbox("Pluralize"):
-        st.warning(pluralize(text_data1))
-    if st.checkbox("Singularize"):
-        st.warning(singularize(text_data1))
 
-    # Comparative/Superlative Section
-    st.header("Comparative/Superlative")
-    text2 = st.text_input("Enter Text For comparative & superlative")
-    if st.checkbox("Comparative"):
-        st.success(comparative(text2))
-    if st.checkbox("Superlative"):
-        st.success(superlative(text2))
 
     # Sentiment Analysis Section
     st.header("Sentiment Analysis")
