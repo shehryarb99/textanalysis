@@ -1,6 +1,7 @@
 import streamlit as st
 from textblob import TextBlob
 import spacy  # Add import for spaCy
+spacy.cli.download('en_core_web_sm')
 
 # Define function for Named Entity Recognition
 def named_entity_recognition(text):
