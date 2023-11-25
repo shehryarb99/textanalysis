@@ -1,6 +1,9 @@
+# Import the required libraries
 import streamlit as st
 from textblob import TextBlob
-import spacy  # Add import for spaCy
+import spacy
+
+# Download the 'en_core_web_sm' model
 spacy.cli.download('en_core_web_sm')
 
 # Define function for Named Entity Recognition
@@ -28,8 +31,6 @@ def main():
     corrected_text = TextBlob(text_data).correct()
     if st.button("Correction"):
         st.success(corrected_text)
-
-
 
     # Sentiment Analysis Section
     st.header("Sentiment Analysis")
